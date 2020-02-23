@@ -3,11 +3,11 @@ import { observable, decorate, action } from "mobx";
 //структура данных
 /**
  * {
- *  "idQuiz" : {
+ *  "id": <string> quiz id,
+ *  "title": <string> quiz title
  *  "questions":[
  *      {
  *          "title": <string>,
- *          "id": <string>,
  *          "isSingle": <boolean> true, alse
  *          "varaiants": [ <array>
  *              { id: 1, title: '1945'},
@@ -17,7 +17,6 @@ import { observable, decorate, action } from "mobx";
  *            ]
  *      }
  *  ]
- * }
  * }
  */
 //страницы приложения

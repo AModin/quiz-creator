@@ -4,13 +4,17 @@ import QuizStore from "../store/QuizStore";
 import QuizQuestionList from "../components/QuizQuestionList";
 import AddQuizTitle from "../components/AddQuizTitle";
 import AddQuizQuestion from "../components/AddQuizQuestion";
+import { observer } from "mobx-react";
+import { observable, toJS } from "mobx";
 
-const AddQuiz = () => {
-  const [questionsList, setQuestionToTheList] = React.useState([]);
+let questionsList = observable([]);
+
+const AddQuiz = observer(() => {
   const [questionInput, setQuestionInput] = React.useState("");
   const [quizTitle, setQuizTitle] = React.useState("");
   const [questionType, setQuestionType] = React.useState(true);
   const { aqqQuiz } = QuizStore;
+
   const addQuestion = () => {
     if (!questionInput.trim().length) {
       alert("You should place title!");
@@ -19,9 +23,11 @@ const AddQuiz = () => {
     const question = {
       title: questionInput,
       id: Date.now(),
-      variants: []
+      variants: [],
+      isSingle: questionType
     };
-    setQuestionToTheList([...questionsList, question]);
+    questionsList.push(question);
+
     setQuestionInput("");
   };
 
@@ -30,7 +36,12 @@ const AddQuiz = () => {
       alert("Check that everything in place");
       return;
     }
-    aqqQuiz(questionsList);
+    aqqQuiz({
+      title: quizTitle,
+      questions: questionsList
+    });
+    questionsList = [];
+    setQuizTitle("")
   };
 
   return (
@@ -41,11 +52,8 @@ const AddQuiz = () => {
         onQuizCreate={onQuizCreate}
       />
 
-      <QuizQuestionList
-        questionsList={questionsList}
-        setQuestionToTheList={setQuestionToTheList}
-      />
-
+      <QuizQuestionList questionsList={questionsList} />
+      <p>{questionsList.length}</p>
       <AddQuizQuestion
         questionInput={questionInput}
         setQuestionInput={setQuestionInput}
@@ -54,10 +62,12 @@ const AddQuiz = () => {
         addQuestion={addQuestion}
       />
       <div>
-        <button onClick={onQuizCreate}>Create quiz</button>
+        <button className="add-quiz-title-button purple" onClick={onQuizCreate}>
+          Create quiz
+        </button>
       </div>
     </div>
   );
-};
+});
 
 export default AddQuiz;

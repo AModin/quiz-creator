@@ -15,9 +15,12 @@ const AddVariant = ({ onAddVariantHandlerCallback, questionId }) => {
         onChange={e => setAddVariant(e.currentTarget.value)}
         ref={inputRef}
         placeholder="Variant title"
+        className="add-title-quiz-input"
         value={addVariant}
       />
-      <button type="submit">Add variant</button>
+      <button type="submit" className="add-quiz-title-button blue">
+        Add variant
+      </button>
     </form>
   );
 };

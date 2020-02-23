@@ -7,12 +7,14 @@ const AddQuizQuestion = ({
   setQuestionType,
   addQuestion
 }) => {
+  const shouldButtonBeDisabled = !questionInput.trim().length;
   return (
-    <div>
+    <div className="question">
       <input
         value={questionInput}
         onChange={e => setQuestionInput(e.currentTarget.value)}
         placeholder="Title question in the quiz"
+        className="add-title-quiz-input"
       />
       <input
         type="checkbox"
@@ -20,7 +22,11 @@ const AddQuizQuestion = ({
         onChange={() => setQuestionType(!questionType)}
       />{" "}
       is single
-      <button className="add-quiz-title-button" onClick={addQuestion}>
+      <button
+        className="add-quiz-title-button green"
+        onClick={addQuestion}
+        disabled={shouldButtonBeDisabled}
+      >
         Add question
       </button>
     </div>

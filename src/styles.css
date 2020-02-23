@@ -18,10 +18,22 @@ ul {
   border: none;
   padding: 10px 15px;
   color: #fff;
-  background: #1f9528;
   font-family: Tahoma, sans-serif;
   font-size: 15px;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.green {
+  background: #1f9528;
+}
+
+.blue {
+  background: blue;
+}
+
+.purple {
+  background: purple;
 }
 
 .add-title-quiz-input {
@@ -31,4 +43,11 @@ ul {
   border-radius: 3px;
   position: relative;
   bottom: 1px;
+}
+
+.question {
+  background: #fefad1;
+  margin: 0 10px;
+  border-radius: 5px;
+  border: 1px dashed #cdcdcd;
 }

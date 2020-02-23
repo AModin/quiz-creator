@@ -1,26 +1,23 @@
 import * as React from "react";
 import IosClose from "react-ionicons/lib/IosClose";
 import AddVariant from "../components/AddVariant";
+import IosRadioButtonOff from "react-ionicons/lib/IosRadioButtonOff";
+import { observer } from "mobx-react";
+import styled from "styled-components";
 
-const QuizQuestionList = ({ questionsList = [], setQuestionToTheList }) => {
+const QuizQuestionList = observer(({ questionsList }) => {
   const addVariantToQuestion = (questionId, variant) => {
-    let updatedQuestion = questionsList.filter(item => {
-      return item.id === questionId;
-    })[0];
-    const updatedQuestionsList = questionsList.filter(item => {
-      return item.id !== questionId;
+    questionsList.forEach(item => {
+      if (item.id === questionId) {
+        item.variants.push(variant);
+      }
     });
-    updatedQuestion.variants.push(variant);
-    const qustionListToAdd =
-      updatedQuestionsList.length > 0 ? updatedQuestionsList : [];
-    setQuestionToTheList([updatedQuestion, ...qustionListToAdd]);
   };
 
   const removeQuestionFromList = id => {
-    const updatedList = questionsList.filter(item => {
+    questionsList = questionsList.filter(item => {
       return item.id !== id;
     });
-    setQuestionToTheList(updatedList);
   };
 
   const onAddVariantHandler = (title, questionId) => {
@@ -30,17 +27,27 @@ const QuizQuestionList = ({ questionsList = [], setQuestionToTheList }) => {
     };
     addVariantToQuestion(questionId, newVariant);
   };
+
   return (
     <div>
       {questionsList?.map(question => {
         return (
           <div key={question.id}>
-            <div>
-              {question.title}
-              <IosClose onClick={() => removeQuestionFromList(question.id)} />
-            </div>
+            <Title>
+              <TitleValue>
+                {question.title}{" "}
+                <RemoveButton onClick={() => removeQuestionFromList(question.id)}>
+                  <IosClose color="red"/>
+                </RemoveButton>
+              </TitleValue>
+            </Title>
             {question?.variants.map(item => {
-              return <div key={item.id}>{item.title}</div>;
+              return (
+                <VariantRow key={item.id}>
+                  <IosRadioButtonOff />
+                  {item.title}
+                </VariantRow>
+              );
             })}
             <div>
               <AddVariant
@@ -53,6 +60,31 @@ const QuizQuestionList = ({ questionsList = [], setQuestionToTheList }) => {
       })}
     </div>
   );
-};
+});
+
+const Title = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center
+`
+
+const TitleValue = styled.h3`
+  display: flex;
+  align-items: center;
+  justify-content: center
+`
+
+const RemoveButton = styled.button`
+  cursor: pointer;
+  border: none;
+  background: transparent;
+`
+
+const VariantRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+`
 
 export default QuizQuestionList;
