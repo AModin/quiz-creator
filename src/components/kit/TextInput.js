@@ -12,8 +12,8 @@ const InputField = styled.input`
   outline: none;
 `;
 
-const TextInput = ({ type , placeholder}) => {
-  return <InputField type={type} placeholder={placeholder}></InputField>;
+const TextInput = (props) => {
+  return <InputField type={props.type} placeholder={props.placeholder}></InputField>;
 };
 
 export default TextInput;
