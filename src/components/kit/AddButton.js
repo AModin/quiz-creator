@@ -1,17 +1,17 @@
 import React from "react";
 import "./add-button.css";
 
-const AddButton = ({ children, type }) => {
+const AddButton = ({ children, variant, ...props } ) => {
   let classes = "icon-btn";
-  if (type === "add") {
+  if (variant === "add") {
     classes += " add-btn";
   } else {
     classes += " delete-btn";
   }
   return (
     <div>
-      <button className={classes}>
-        {type === "add" ? <div className="add-icon" /> : null}
+      <button className={classes} {...props}>
+        {variant === "add" ? <div className="add-icon" /> : null}
 
         <div className="btn-txt">{children}</div>
       </button>

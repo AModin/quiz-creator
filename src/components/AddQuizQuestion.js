@@ -1,5 +1,6 @@
 import * as React from "react";
 import TextInput from "./kit/TextInput";
+import AddButton from "./kit/AddButton";
 
 const AddQuizQuestion = ({
   questionInput,
@@ -23,13 +24,13 @@ const AddQuizQuestion = ({
         onChange={() => setQuestionType(!questionType)}
       />{" "}
       is single
-      <button
-        className="add-quiz-title-button green"
+      <AddButton
         onClick={addQuestion}
         disabled={shouldButtonBeDisabled}
+        variant="add"
       >
         Add question
-      </button>
+      </AddButton>
     </div>
   );
 };

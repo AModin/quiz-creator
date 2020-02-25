@@ -15,7 +15,7 @@
 }
 .add-btn:hover,
 .delete-btn:hover {
-  width: 120px;
+  width: 160px;
 }
 .add-btn::before,
 .add-btn::after {
@@ -44,6 +44,8 @@
 .btn-txt {
   opacity: 0;
   transition: opacity 0.2s;
+  color: rgb(118, 118, 118);
+  font-size: 18px;
 }
 .add-btn:hover::before,
 .add-btn:hover::after {
