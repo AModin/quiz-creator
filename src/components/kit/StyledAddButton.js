@@ -40,18 +40,18 @@ const Button = styled.button`
     width: 4px;
     border-radius: 2px;
   }
-  &:hover .btn-txt {
+  &:hover span {
     opacity: 1;
   }
   &:focus {
     outline: none;
   }
-  &:hover .add-icon::before {
+  &:hover div::before {
     left: 15px;
     height: 4px;
     top: calc(50% - 2px);
   }
-  &:hover .add-icon::after {
+  &:hover div::after {
     right: 15px;
     height: 4px;
     top: calc(50% - 2px);
@@ -80,7 +80,7 @@ const AddIcon = styled.div`
   border-bottom-right-radius: 2px;
 }
 `;
-const BtnText = styled.div`
+const BtnText = styled.span`
   opacity: 0;
   transition: opacity 0.2s;
   color: rgb(118, 118, 118);
@@ -91,9 +91,9 @@ const StyledAddButton = ({ children, variant, ...props }) => {
   return (
     <Button variant={variant}  {  ...props}>
       {/* <div className="add-icon" /> */}
-      {variant === "add" ? <AddIcon className="add-icon" /> : null}
+      {variant === "add" ? <AddIcon  /> : null}
 
-      <BtnText className="btn-txt">{children}</BtnText>
+      <BtnText >{children}</BtnText>
     </Button>
   );
 };
