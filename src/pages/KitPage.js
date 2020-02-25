@@ -1,6 +1,7 @@
 import React from "react";
 import AddButton from "../components/kit/AddButton";
 import  TextInput from "../components/kit/TextInput";
+import StyledAddButton from "../components/kit/StyledAddButton";
  
 
 const QuizPage = props => (
@@ -9,6 +10,8 @@ const QuizPage = props => (
     <AddButton variant="add">Добавить</AddButton>
     <AddButton variant="delete">Удалить</AddButton>
     <TextInput type="text" placeholder="Some text"></TextInput>
+    <StyledAddButton variant="add">Add</StyledAddButton>
+    <StyledAddButton >Delete</StyledAddButton>
   </div>
 );
 
