@@ -12,8 +12,8 @@ const InputField = styled.input`
   outline: none;
 `;
 
-const TextInput = (props) => {
-  return <InputField {...props}></InputField>;
-};
+const TextInput = React.forwardRef((props,ref) => {
+  return <InputField ref={ref} {...props}></InputField>;
+});
 
 export default TextInput;

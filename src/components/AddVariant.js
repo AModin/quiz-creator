@@ -1,4 +1,5 @@
 import * as React from "react";
+import TextInput from "./kit/TextInput";
 
 const AddVariant = ({ onAddVariantHandlerCallback, questionId }) => {
   const [addVariant, setAddVariant] = React.useState("");
@@ -15,7 +16,7 @@ const AddVariant = ({ onAddVariantHandlerCallback, questionId }) => {
   };
   return (
     <form onSubmit={onSubmitHandler}>
-      <input
+      <TextInput
         onChange={e => setAddVariant(e.currentTarget.value)}
         ref={inputRef}
         placeholder="Variant title"
