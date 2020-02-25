@@ -13,7 +13,7 @@ const InputField = styled.input`
 `;
 
 const TextInput = (props) => {
-  return <InputField type={props.type} placeholder={props.placeholder}></InputField>;
+  return <InputField {...props}></InputField>;
 };
 
 export default TextInput;
