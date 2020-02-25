@@ -4,6 +4,10 @@ const AddVariant = ({ onAddVariantHandlerCallback, questionId }) => {
   const [addVariant, setAddVariant] = React.useState("");
   const inputRef = React.useRef();
   const onSubmitHandler = e => {
+    if(!addVariant.trim().length){
+      alert("Title cannot be empty");
+      return;
+    }
     e.preventDefault();
     onAddVariantHandlerCallback(addVariant, questionId);
     setAddVariant("");
@@ -15,9 +19,12 @@ const AddVariant = ({ onAddVariantHandlerCallback, questionId }) => {
         onChange={e => setAddVariant(e.currentTarget.value)}
         ref={inputRef}
         placeholder="Variant title"
+        className="add-title-quiz-input"
         value={addVariant}
       />
-      <button type="submit">Add variant</button>
+      <button type="submit" className="add-quiz-title-button blue">
+        Add variant
+      </button>
     </form>
   );
 };
