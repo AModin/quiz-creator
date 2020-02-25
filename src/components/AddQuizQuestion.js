@@ -1,4 +1,5 @@
 import * as React from "react";
+import TextInput from "./kit/TextInput";
 
 const AddQuizQuestion = ({
   questionInput,
@@ -10,7 +11,7 @@ const AddQuizQuestion = ({
   const shouldButtonBeDisabled = !questionInput.trim().length;
   return (
     <div className="question">
-      <input
+      <TextInput
         value={questionInput}
         onChange={e => setQuestionInput(e.currentTarget.value)}
         placeholder="Title question in the quiz"
