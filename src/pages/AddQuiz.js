@@ -27,7 +27,6 @@ const AddQuiz = observer(() => {
       isSingle: questionType
     };
     questionsList.push(question);
-
     setQuestionInput("");
   };
 
@@ -36,11 +35,8 @@ const AddQuiz = observer(() => {
       alert("Check that everything in place");
       return;
     }
-    aqqQuiz({
-      title: quizTitle,
-      questions: questionsList
-    });
-    questionsList = [];
+    aqqQuiz(...questionsList);
+    questionsList.splice(0,questionsList.length)
     setQuizTitle("")
   };
 

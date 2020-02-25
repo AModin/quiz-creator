@@ -4,11 +4,12 @@ import { observable, decorate, action } from "mobx";
 /**
  * {
  *  "id": <string> quiz id,
- *  "title": <string> quiz title
+ *  "title": <number> quiz title
  *  "questions":[
  *      {
  *          "title": <string>,
- *          "isSingle": <boolean> true, alse
+ *          "isSingle": <boolean> true, false
+ *          "id": <number>
  *          "varaiants": [ <array>
  *              { id: 1, title: '1945'},
  *              { id: 2, title: '1944'},
