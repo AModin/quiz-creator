@@ -4,6 +4,10 @@ const AddVariant = ({ onAddVariantHandlerCallback, questionId }) => {
   const [addVariant, setAddVariant] = React.useState("");
   const inputRef = React.useRef();
   const onSubmitHandler = e => {
+    if(!addVariant.trim().length){
+      alert("Title cannot be empty");
+      return;
+    }
     e.preventDefault();
     onAddVariantHandlerCallback(addVariant, questionId);
     setAddVariant("");
