@@ -2,6 +2,7 @@ import React from "react";
 import AddButton from "../components/kit/AddButton";
 import  TextInput from "../components/kit/TextInput";
 import StyledAddButton from "../components/kit/StyledAddButton";
+import StyledCheckbox from "../components/kit/StyledCheckbox";
  
 
 const QuizPage = props => (
@@ -11,7 +12,8 @@ const QuizPage = props => (
     <AddButton variant="delete">Удалить</AddButton>
     <TextInput type="text" placeholder="Some text"></TextInput>
     <StyledAddButton variant="add">Add</StyledAddButton>
-    <StyledAddButton >Delete</StyledAddButton>
+    <StyledAddButton >Delete</StyledAddButton><br/>
+    <StyledCheckbox color={false}>Single</StyledCheckbox>
   </div>
 );
 

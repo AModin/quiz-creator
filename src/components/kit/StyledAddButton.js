@@ -58,27 +58,27 @@ const Button = styled.button`
   }
 `;
 const AddIcon = styled.div`
-&::after,
-&::before {
-  transition: all 0.2s ease-in-out;
-  content: "";
-  position: absolute;
-  height: 20px;
-  width: 2px;
-  top: calc(50% - 10px);
-  background: green;
-  overflow: hidden;
-}
-&::before {
-  left: 22px;
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-&::after {
-  right: 22px;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
+  &::after,
+  &::before {
+    transition: all 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 2px;
+    top: calc(50% - 10px);
+    background: green;
+    overflow: hidden;
+  }
+  &::before {
+    left: 22px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+  &::after {
+    right: 22px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
 `;
 const BtnText = styled.span`
   opacity: 0;
