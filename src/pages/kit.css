@@ -1,0 +1,8 @@
+.kit-container{
+    width: 100%;
+    height: auto;
+    /* padding: 0 auto; */
+    padding: 20px 0px;
+    border: 1px solid #cecece;
+    background-color: #d4d4a4bd;
+}
