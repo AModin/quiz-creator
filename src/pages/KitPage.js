@@ -20,10 +20,36 @@ const ColorBox = styled.div`
 const QuizPage = props => {
   const [isSingle, setIsSingle] = useState(true);
   const [boxColor, setboxColor] = useState("blue");
+  const [textInput, setTextInput] = useState("Stam");
   return (
     <div>
       <h1>Kit Page </h1>
 
+      <div className="kit-container">
+        <div>
+          <h1>TextInput Testing</h1>
+          <h2>{textInput}</h2>
+        </div>
+        <StyledButton
+          dark
+          color="#cdcdcd"
+          onClick={() => {
+            setTextInput(textInput + "1");
+          }}
+        >
+          Button
+        </StyledButton>
+      </div>
+      <div className="kit-container">
+        <div>
+          <h1>TextInput Testing</h1>
+          <h2>{textInput}</h2>
+        </div>
+        <TextInput
+          placeholder="Some text..."
+          onChange={event => setTextInput(event.target.value)}
+        ></TextInput>
+      </div>
       <div className="kit-container">
         <div>
           <h1>Checkbox Testing</h1>
@@ -45,7 +71,7 @@ const QuizPage = props => {
         <StyledRadioButton
           checked={boxColor === "red"}
           name="boxColor"
-          onClick={()=>setboxColor("red")}
+          onClick={() => setboxColor("red")}
           color="red"
         >
           Red
@@ -53,7 +79,7 @@ const QuizPage = props => {
         <StyledRadioButton
           checked={boxColor === "blue"}
           name="boxColor"
-          onClick={()=>setboxColor("blue")}
+          onClick={() => setboxColor("blue")}
           color="blue"
         >
           Blue
@@ -61,7 +87,7 @@ const QuizPage = props => {
         <StyledRadioButton
           checked={boxColor === "green"}
           name="boxColor"
-          onClick={()=>setboxColor("green")}
+          onClick={() => setboxColor("green")}
           color="green"
         >
           Green
