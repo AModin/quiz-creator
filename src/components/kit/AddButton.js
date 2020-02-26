@@ -9,13 +9,12 @@ const AddButton = ({ children, variant, ...props } ) => {
     classes += " delete-btn";
   }
   return (
-    <div>
+    
       <button className={classes} {...props}>
         {variant === "add" ? <div className="add-icon" /> : null}
 
         <div className="btn-txt">{children}</div>
       </button>
-    </div>
   );
 };
 

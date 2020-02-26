@@ -24,7 +24,8 @@ const RadioContainer = styled.label`
 
   /* When the radio button is checked, add a blue background */
   & input:checked ~ span {
-    background-color:  ${(props)=> (props.color)? props.color.toString(): "#2196f3"};
+    background-color: ${props =>
+      props.color ? props.color.toString() : "#2196f3"};
   }
   /* Show the indicator (dot/circle) when checked */
   & input:checked ~ span:after {
@@ -58,15 +59,13 @@ const RadioCheckMark = styled.span`
   }
 `;
 
-const StyledRadioButton = ({ children,color, ...props }) => {
+const StyledRadioButton = ({ children, color, ...props }) => {
   return (
-    <div>
-      <RadioContainer color={color}>
-        {children}
-        <input type="radio" {...props} />
-        <RadioCheckMark ></RadioCheckMark>
-      </RadioContainer>
-    </div>
+    <RadioContainer color={color}>
+      {children}
+      <input type="radio" {...props} />
+      <RadioCheckMark></RadioCheckMark>
+    </RadioContainer>
   );
 };
 
