@@ -24,7 +24,8 @@ const CheckboxContainer = styled.label`
 
   /* When the checkbox is checked, add a blue background */
   & input:checked ~ span {
-    background-color:  ${(props)=> (props.color)? props.color.toString(): "#2196f3"};
+    background-color: ${props =>
+      props.color ? props.color.toString() : "#2196f3"};
     /* background-color: #2196f3; */
   }
   & input:checked ~ span:after {
@@ -60,14 +61,12 @@ const CheckboxCheckmark = styled.span`
   }
 `;
 
-const StyledCheckbox = ({ children,color, ...props }) => {
-  return (
-    <CheckboxContainer color={color}>
-      {children}
-      <input type="checkbox" {...props}/>
-      <CheckboxCheckmark></CheckboxCheckmark>
-    </CheckboxContainer>
-  );
-};
+const StyledCheckbox = ({ children, color, ...props }) => (
+  <CheckboxContainer color={color}>
+    {children}
+    <input type="checkbox" {...props} />
+    <CheckboxCheckmark></CheckboxCheckmark>
+  </CheckboxContainer>
+);
 
 export default StyledCheckbox;

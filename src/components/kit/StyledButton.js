@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-// Some seting for button!!!
+// Some setting for button!!!
 // dark atribute for white text color 
 // color atribute for background color 
 // width atribute for button width 
