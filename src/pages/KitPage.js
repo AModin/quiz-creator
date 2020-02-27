@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+// eslint-disable-next-line
 import AddButton from "../components/kit/AddButton";
 import TextInput from "../components/kit/TextInput";
+// eslint-disable-next-line
 import StyledAddButton from "../components/kit/StyledAddButton";
 import StyledCheckbox from "../components/kit/StyledCheckbox";
 import StyledRadioButton from "../components/kit/StyledRadioButton";
@@ -21,6 +23,8 @@ const QuizPage = props => {
   const [isSingle, setIsSingle] = useState(true);
   const [boxColor, setboxColor] = useState("blue");
   const [textInput, setTextInput] = useState("Stam");
+
+ 
   return (
     <div>
       <h1>Kit Page </h1>
@@ -56,9 +60,8 @@ const QuizPage = props => {
           <h2>{isSingle ? "Single" : "Multiple"}</h2>
         </div>
         <StyledCheckbox
-          color={false}
-          checked={isSingle}
-          onChange={() => setIsSingle(!isSingle)}
+          defaultChecked
+          onChange={()=>setIsSingle(!isSingle)}
         >
           Single
         </StyledCheckbox>
@@ -69,7 +72,8 @@ const QuizPage = props => {
           <ColorBox color={boxColor} />
         </div>
         <StyledRadioButton
-          checked={boxColor === "red"}
+          // checked={boxColor === "red"}
+          defaultChecked={boxColor === "red"}
           name="boxColor"
           onClick={() => setboxColor("red")}
           color="red"
@@ -77,7 +81,7 @@ const QuizPage = props => {
           Red
         </StyledRadioButton>
         <StyledRadioButton
-          checked={boxColor === "blue"}
+          defaultChecked={boxColor === "blue"}
           name="boxColor"
           onClick={() => setboxColor("blue")}
           color="blue"
@@ -85,7 +89,7 @@ const QuizPage = props => {
           Blue
         </StyledRadioButton>
         <StyledRadioButton
-          checked={boxColor === "green"}
+          defaultChecked={boxColor === "green"}
           name="boxColor"
           onClick={() => setboxColor("green")}
           color="green"
