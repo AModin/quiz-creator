@@ -5,6 +5,7 @@ import QuizQuestionList from "../components/QuizQuestionList";
 import AddQuizTitle from "../components/AddQuizTitle";
 import AddQuizQuestion from "../components/AddQuizQuestion";
 import { observer } from "mobx-react";
+// eslint-disable-next-line
 import { observable, toJS } from "mobx";
 
 let questionsList = observable([]);
@@ -35,7 +36,12 @@ const AddQuiz = observer(() => {
       alert("Check that everything in place");
       return;
     }
-    aqqQuiz(...questionsList);
+    let quiz ={
+      "id": Date.now(),
+      "title": quizTitle,
+      "question": questionsList
+    }
+    aqqQuiz(quiz);
     questionsList.splice(0,questionsList.length)
     setQuizTitle("")
   };
