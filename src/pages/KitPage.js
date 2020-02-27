@@ -31,7 +31,7 @@ const QuizPage = props => {
 
       <div className="kit-container">
         <div>
-          <h1>TextInput Testing</h1>
+          <h1>StyledButton Testing</h1>
           <h2>{textInput}</h2>
         </div>
         <StyledButton
@@ -60,8 +60,9 @@ const QuizPage = props => {
           <h2>{isSingle ? "Single" : "Multiple"}</h2>
         </div>
         <StyledCheckbox
-          defaultChecked
-          onChange={()=>setIsSingle(!isSingle)}
+          color="orange"
+          checked={isSingle}
+          handleChange={()=>setIsSingle(!isSingle)}
         >
           Single
         </StyledCheckbox>

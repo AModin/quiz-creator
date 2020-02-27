@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const CheckboxContainer = styled.label`
@@ -61,12 +61,18 @@ const CheckboxCheckmark = styled.span`
   }
 `;
 
-const StyledCheckbox = ({ children, color, ...props }) => (
+const StyledCheckbox = ({ children, color, checked, handleChange }) => {
+  const [value, setValue] = useState(checked || false)
+  function handleCheckbox(e){
+    handleChange()
+    setValue(!value)
+  }
+  return(
   <CheckboxContainer color={color}>
     {children}
-    <input type="checkbox" {...props} />
+    <input type="checkbox" checked={value} onChange={handleCheckbox}/>
     <CheckboxCheckmark></CheckboxCheckmark>
   </CheckboxContainer>
-);
+)};
 
 export default StyledCheckbox;
