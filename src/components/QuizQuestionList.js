@@ -4,8 +4,11 @@ import AddVariant from "../components/AddVariant";
 import IosRadioButtonOff from "react-ionicons/lib/IosRadioButtonOff";
 import { observer } from "mobx-react";
 import styled from "styled-components";
+import { toJS } from "mobx";
+import {questionListLocal} from "../pages/AddQuiz";
 
-const QuizQuestionList = observer(({ questionsList }) => {
+const QuizQuestionList = observer(() => {
+  const { questionsList } = questionListLocal;
   const addVariantToQuestion = (questionId, variant) => {
     questionsList.forEach(item => {
       if (item.id === questionId) {
@@ -15,7 +18,7 @@ const QuizQuestionList = observer(({ questionsList }) => {
   };
 
   const removeQuestionFromList = id => {
-    questionsList = questionsList.filter(item => {
+    questionListLocal.questionsList = questionsList.filter(item => {
       return item.id !== id;
     });
   };

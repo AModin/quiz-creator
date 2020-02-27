@@ -5,16 +5,25 @@ import QuizQuestionList from "../components/QuizQuestionList";
 import AddQuizTitle from "../components/AddQuizTitle";
 import AddQuizQuestion from "../components/AddQuizQuestion";
 import { observer } from "mobx-react";
-// eslint-disable-next-line
-import { observable, toJS } from "mobx";
+import { observable, decorate } from "mobx";
 
-let questionsList = observable([]);
+class QuestionListLocal {
+  questionsList = []
+}
+
+decorate(QuestionListLocal, {
+  questionsList: observable
+});
+
+const questionListLocal = new QuestionListLocal();
 
 const AddQuiz = observer(() => {
+  const { questionsList } = questionListLocal;
   const [questionInput, setQuestionInput] = React.useState("");
   const [quizTitle, setQuizTitle] = React.useState("");
   const [questionType, setQuestionType] = React.useState(true);
   const { aqqQuiz } = QuizStore;
+  
 
   const addQuestion = () => {
     if (!questionInput.trim().length) {
@@ -36,12 +45,13 @@ const AddQuiz = observer(() => {
       alert("Check that everything in place");
       return;
     }
-    let quiz ={
-      "id": Date.now(),
-      "title": quizTitle,
-      "question": questionsList
+
+    const newQuiz = {
+      id: Date.now(),
+      title: quizTitle,
+      questions: [...questionsList]
     }
-    aqqQuiz(quiz);
+    aqqQuiz(newQuiz);
     questionsList.splice(0,questionsList.length)
     setQuizTitle("")
   };
@@ -72,4 +82,4 @@ const AddQuiz = observer(() => {
   );
 });
 
-export default AddQuiz;
+export { AddQuiz as default, questionListLocal } ;
