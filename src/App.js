@@ -22,9 +22,7 @@ export default function App() {
         <Route exact path="/quizes-list">
           <QuizesList />
         </Route>
-        <Route path="/quiz/:quizId">
-          <QuizPage />
-        </Route>
+        <Route exact path="/quiz/:quizId" component={QuizPage} />
         <Route exact path="/kit-page">
           <KitPage />
         </Route>
