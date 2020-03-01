@@ -61,7 +61,7 @@ const CheckboxCheckmark = styled.span`
   }
 `;
 
-const StyledCheckbox = ({ children, color, checked, handleChange }) => {
+const StyledCheckbox = ({ children, color, checked, handleChange, ...otherProps }) => {
   const [value, setValue] = useState(checked || false)
   function handleCheckbox(e){
     handleChange()
@@ -70,7 +70,7 @@ const StyledCheckbox = ({ children, color, checked, handleChange }) => {
   return(
   <CheckboxContainer color={color}>
     {children}
-    <input type="checkbox" checked={value} onChange={handleCheckbox}/>
+    <input type="checkbox" checked={value} onChange={handleCheckbox} {...otherProps}/>
     <CheckboxCheckmark></CheckboxCheckmark>
   </CheckboxContainer>
 )};

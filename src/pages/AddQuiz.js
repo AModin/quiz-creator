@@ -8,7 +8,7 @@ import { observer } from "mobx-react";
 import { observable, decorate } from "mobx";
 
 class QuestionListLocal {
-  questionsList = []
+  questionsList = [];
 }
 
 decorate(QuestionListLocal, {
@@ -23,7 +23,38 @@ const AddQuiz = observer(() => {
   const [quizTitle, setQuizTitle] = React.useState("");
   const [questionType, setQuestionType] = React.useState(true);
   const { aqqQuiz } = QuizStore;
-  
+
+  let Test = {
+    id: Date.now(),
+    title: "Cool Quiz",
+    questions: [
+      {
+        id: 0,
+        title: "When?",
+        isSingle: true,
+        variants: [
+          { id: 1, title: "1945" },
+          { id: 2, title: "1944" },
+          { id: 3, title: "1956" },
+          { id: 4, title: "1937" }
+        ]
+      },
+      {
+        id: 1,
+        title: "Why?",
+        isSingle: false,
+        variants: [
+          { id: 1, title: "kaha" },
+          { id: 2, title: "kaha" },
+          { id: 3, title: "kaha" },
+          { id: 4, title: "kaha" }
+        ]
+      },
+    ]
+  };
+  // React.useEffect(() => {
+    aqqQuiz(Test);
+  // });
 
   const addQuestion = () => {
     if (!questionInput.trim().length) {
@@ -50,10 +81,10 @@ const AddQuiz = observer(() => {
       id: Date.now(),
       title: quizTitle,
       questions: [...questionsList]
-    }
+    };
     aqqQuiz(newQuiz);
-    questionsList.splice(0,questionsList.length)
-    setQuizTitle("")
+    questionsList.splice(0, questionsList.length);
+    setQuizTitle("");
   };
 
   return (
@@ -82,4 +113,4 @@ const AddQuiz = observer(() => {
   );
 });
 
-export { AddQuiz as default, questionListLocal } ;
+export { AddQuiz as default, questionListLocal };
