@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import QuizStore from "../store/QuizStore";
 import { toJS } from "mobx";
 import { observer } from "mobx-react";
-import StyledRadioButton from "../components/kit/StyledRadioButton";
 import StyledButton from "../components/kit/StyledButton";
-import StyledCheckbox from "../components/kit/StyledCheckbox";
 import StyledQuizPage from "./StyledQuizPage";
 import QuizHeader from "../components/QuizHeader";
 import QuizBody from "../components/QuizBody";

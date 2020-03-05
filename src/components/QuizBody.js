@@ -30,6 +30,7 @@ const QuizBody = ({ questions }) => {
             ))}
           </ol>
         )}
+        <hr/>
       </div>
     ));
   }
