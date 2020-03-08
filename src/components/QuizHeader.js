@@ -1,5 +1,4 @@
 import React from "react";
-import StyledQuizPage from "../pages/StyledQuizPage";
 import styled from "styled-components";
 import StyledButton from "./kit/StyledButton";
 
@@ -24,7 +23,7 @@ const QuizHeader = props => {
   return (
     <StyledQuizHeader>
       <StyledTitle>{props.title}</StyledTitle><br/>
-      <StyledButton height="30px" width="120px" dark>Edit Quiz</StyledButton>
+      <StyledButton color="#edaf02" height="30px" width="120px" dark>Edit Quiz</StyledButton>
       <QuizDescription>{props.description}
       <br/>date of creation: {props.date}
       </QuizDescription>

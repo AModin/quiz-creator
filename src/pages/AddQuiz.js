@@ -44,10 +44,10 @@ const AddQuiz = observer(() => {
         title: "Why?",
         isSingle: false,
         variants: [
-          { id: 1, title: "kaha" },
-          { id: 2, title: "kaha" },
-          { id: 3, title: "kaha" },
-          { id: 4, title: "kaha" }
+          { id: 1, title: "kah1" },
+          { id: 2, title: "kah2" },
+          { id: 3, title: "kah3" },
+          { id: 4, title: "kah4" }
         ]
       },
     ]
