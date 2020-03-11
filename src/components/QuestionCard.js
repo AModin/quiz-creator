@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import StyledCheckbox from "./kit/StyledCheckbox";
 import StyledRadioButton from "./kit/StyledRadioButton";
 
-const QuestionCard = ({ question }) => {
+const QuestionCard = ({ question, updateAnswers }) => {
   const [answer, setAnswer] = useState([]);
   const isSingle = question.isSingle;
 
   const handleCheckboxes = title => {
-    let newAnswer = answer;
+    let newAnswer = [...answer];
 
     if (answer.includes(title)) {
       newAnswer = answer.filter(a => a !== title);
@@ -15,7 +15,7 @@ const QuestionCard = ({ question }) => {
       newAnswer.push(title);
     }
     setAnswer(newAnswer);
-    console.log(newAnswer);
+    updateAnswers(question.title, newAnswer)
   };
   const handleRadiobuttons = title => {
     let newAnswer = [];
@@ -23,7 +23,7 @@ const QuestionCard = ({ question }) => {
     newAnswer.push(title);
 
     setAnswer(newAnswer);
-    console.log(newAnswer);
+    updateAnswers(question.title, newAnswer)
   };
 
   const variants = (
@@ -54,7 +54,7 @@ const QuestionCard = ({ question }) => {
       <h3>{question.title}</h3>
       <div>{variants}</div>
       <div>
-        <p>Answers:</p>
+        <p>Answers: {answer.join(", ")}</p>
       </div>
     </div>
   );
