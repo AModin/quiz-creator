@@ -5,16 +5,17 @@ import QuizesList from "./pages/QuizesList";
 import QuizPage from "./pages/QuizPage";
 import AddQuiz from "./pages/AddQuiz";
 import KitPage from "./pages/KitPage";
+import EndOfTest from "./pages/EndOfTest";
 
 export default function App() {
   return (
     <div className="App">
       <h1>Teacher Panel</h1>
       <ul>
-        <Link to="/quizes-list">List of my Quizes</Link>
-        <Link to="/add-quiz">Add new Quiz</Link>
-        <Link to="/quiz/12345">Some Quiz</Link>
-        <Link to="/kit-page">Kit Page</Link>
+        <Link className="nav-link" to="/quizes-list">List of my Quizes</Link>
+        <Link className="nav-link" to="/add-quiz">Add new Quiz</Link>
+        <Link className="nav-link" to="/quiz/12345">Some Quiz</Link>
+        <Link className="nav-link" to="/kit-page">Kit Page</Link>
       </ul>
 
       <Switch>
@@ -23,6 +24,7 @@ export default function App() {
           <QuizesList />
         </Route>
         <Route exact path="/quiz/:quizId" component={QuizPage} />
+        <Route exact path="/end-of-test" component={EndOfTest} />
         <Route exact path="/kit-page">
           <KitPage />
         </Route>

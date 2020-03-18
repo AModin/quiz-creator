@@ -4,6 +4,10 @@
 }
 a {
   text-decoration: none;
+  color: initial;
+}
+.nav-link {
+  text-decoration: none;
   color: rgb(88, 151, 170);
   font-size: 20px;
   border: 1px solid #cecece;
