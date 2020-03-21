@@ -41,5 +41,5 @@ decorate(StudentAnswers, {
   deleteAnswer: action
 });
 
-const AnswersStore = new StudentAnswers();
-export default AnswersStore;
+const ResultsStore = new StudentAnswers();
+export default ResultsStore;

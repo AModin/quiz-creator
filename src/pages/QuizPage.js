@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import QuizStore from "../store/QuizStore";
-import AnswersStore from "../store/AnswersStore";
+import ResultsStore from "../store/ResultsStore";
 import { toJS } from "mobx";
 import { observer } from "mobx-react";
 import StyledButton from "../components/kit/StyledButton";
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const QuizPage = observer(props => {
   const [answers, setAnswers] = useState([]);
-  const { addAnswers } = AnswersStore;
+  const { addAnswers } = ResultsStore;
   const listOfAnswers = answers.map(answer => (
     <p key={answer.title}>
       Title: {answer.title},<i> Answer: {answer.value}</i>
