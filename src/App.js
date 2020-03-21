@@ -6,6 +6,7 @@ import QuizPage from "./pages/QuizPage";
 import AddQuiz from "./pages/AddQuiz";
 import KitPage from "./pages/KitPage";
 import EndOfTest from "./pages/EndOfTest";
+import ResultsPage from "./pages/ResultsPage";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <QuizesList />
         </Route>
         <Route exact path="/quiz/:quizId" component={QuizPage} />
+        <Route exact path="/results/:quizId" component={ResultsPage} />
         <Route exact path="/end-of-test" component={EndOfTest} />
         <Route exact path="/kit-page">
           <KitPage />

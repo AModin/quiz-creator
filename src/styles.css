@@ -59,3 +59,16 @@ ul {
   display: flex;
   flex-direction: column;
 }
+
+table, th, td {
+  border: 1px solid #cecece;
+  border-collapse: collapse;
+}
+
+th{
+  color: rgb(88, 170, 125);
+}
+
+th, td {
+  padding: 15px;
+}
