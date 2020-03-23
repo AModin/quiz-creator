@@ -18,14 +18,20 @@ import { observable, decorate, action } from "mobx";
  */
 class StudentAnswers {
   answers = {};
+  answersForEachQuiz = {}
 
   addAnswers = answer => {
     this.answers[Date.now()] = answer;
+    if(this.answersForEachQuiz[answer.quizId]){
+      this.answersForEachQuiz[answer.quizId] +=1
+    } else{
+      this.answersForEachQuiz[answer.quizId] = 1
+    }
   };
 
   deleteAnswer = id => {
     //TO DO Create 
-    
+    this.answersForEachQuiz[this.answer.quizId] -= 1
     delete this.answers[id];
   };
 
@@ -36,6 +42,7 @@ class StudentAnswers {
 
 decorate(StudentAnswers, {
   answers: observable,
+  answersForEachQuiz: observable,
   addAnswers: action,
   editAnswers: action,
   deleteAnswer: action
